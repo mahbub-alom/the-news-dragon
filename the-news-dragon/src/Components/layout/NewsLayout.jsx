@@ -1,23 +1,17 @@
 import React from 'react';
-import Header from './Header';
-import Footer from './Footer';
+import Header from '../router/Header';
 import { Col, Container, Row } from 'react-bootstrap';
-import LeftNav from './LeftNav';
-import RightNav from './RightNav';
 import { Outlet } from 'react-router-dom';
-import NavigationBari from './NavigationBari';
+import RightNav from '../router/RightNav';
+import Footer from '../router/Footer';
 
-const Main = () => {
+const NewsLayout = () => {
     return (
         <div>
             <Header></Header>
-            <NavigationBari></NavigationBari>
             <Container>
                 <Row>
-                    <Col lg={3}>
-                        <LeftNav></LeftNav>
-                    </Col>
-                    <Col lg={6}>
+                    <Col lg={9}>
                         <Outlet></Outlet>
                     </Col>
                     <Col lg={3}>
@@ -30,4 +24,4 @@ const Main = () => {
     );
 };
 
-export default Main;
+export default NewsLayout;

@@ -5,7 +5,7 @@ import QZone from './QZone';
 
 const RightNav = () => {
     return (
-        <div>
+        <div className='mt-4'>
             <h3>Login Now</h3>
             <Button className='mb-2' variant="outline-primary"><FaGoogle /> Login With Google</Button>
             <Button variant="outline-secondary"><FaGithub /> Login With Github</Button>
