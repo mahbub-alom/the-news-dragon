@@ -15,14 +15,6 @@ app.get('/', (req, res) => {
 app.get('/categories', (req, res) => {
     res.send(categories)
 })
-app.get('/news', (req, res) => {
-    res.send(news)
-})
-app.get('/news/:id', (req, res) => {
-    const id = req.params.id;
-    const selectedNews = news.find(newses => newses._id === id);
-    res.send(selectedNews)
-})
 
 app.get('/categories/:id', (req, res) => {
     const id = parseInt(req.params.id);
@@ -34,6 +26,17 @@ app.get('/categories/:id', (req, res) => {
         res.send(categoryNews)
     }
 })
+
+
+app.get('/news', (req, res) => {
+    res.send(news)
+})
+app.get('/news/:id', (req, res) => {
+    const id = req.params.id;
+    const selectedNews = news.find(newses => newses._id === id);
+    res.send(selectedNews)
+})
+
 
 app.listen(port, () => {
     console.log(`dragon api is running${port}`);
