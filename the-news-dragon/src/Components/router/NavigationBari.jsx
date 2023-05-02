@@ -6,7 +6,15 @@ import { AuthContext } from '../providers/AuthProvider';
 
 const NavigationBari = () => {
 
-    const { user } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        logOut()
+            .then()
+            .catch(error => {
+                console.log(error.message);
+            })
+    }
 
     return (
         <Container>
@@ -18,7 +26,7 @@ const NavigationBari = () => {
                             <Link className='text-secondary text-decoration-none me-2' to='/category/0'>Home</Link>
                             <Link className='text-secondary text-decoration-none ' to='/'>About</Link>
                             <Link className='text-secondary text-decoration-none ms-2' to='/'>Career</Link>
-
+                            <Link className='text-secondary text-decoration-none ms-2' to='/register'>Register</Link>
                         </Nav>
                         <Nav>
                             {user &&
@@ -28,7 +36,7 @@ const NavigationBari = () => {
 
                             {
                                 user ?
-                                    <Button variant="secondary">Logout</Button> :
+                                    <Button onClick={handleLogOut} variant="secondary">Logout</Button> :
                                     <Link to='/login'>
                                         <Button variant="secondary">Login</Button>
                                     </Link>
