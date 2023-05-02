@@ -9,7 +9,6 @@ const Login = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
-    console.log(location);
 
     const handleLogin = (event) => {
         event.preventDefault()
@@ -20,7 +19,6 @@ const Login = () => {
         loginUser(email, password)
             .then(result => {
                 const loggedUser = result.user;
-                console.log(loggedUser);
                 navigate(from, { replace: true })
             })
             .catch(error => {
